@@ -28,23 +28,49 @@ def predict_data(data):
 def main():
     st.set_page_config(page_title="Student Performance Prediction", layout="wide")
 
-    st.title("Student Performance Prediction")
+    st.title("📚 Student Performance Prediction 📚")
+    
+    # Add custom CSS
     st.markdown("""
         <style>
             .main-title {
-                font-size: 24px;
+                font-size: 30px;
                 color: #4CAF50;
+                text-align: center;
+                font-weight: bold;
+            }
+            .prediction-result {
+                font-size: 28px;
+                color: #FF6347;
+                font-weight: bold;
+                text-align: center;
+            }
+            .explanation {
+                font-size: 18px;
+                color: #555555;
+                text-align: left;
+            }
+            .sidebar-header {
+                font-size: 20px;
+                font-weight: bold;
+                color: #4CAF50;
+            }
+            .footer {
+                font-size: 14px;
+                color: #888888;
+                text-align: center;
+                margin-top: 50px;
             }
         </style>
     """, unsafe_allow_html=True)
     
     # Sidebar Layout
-    st.sidebar.header("Input Parameters")
-    hours_studied = st.sidebar.slider("Hours Studied", 1, 10, 5)
-    pre_score = st.sidebar.slider("Previous Scores", 40, 100, 40)
-    exe_activity = st.sidebar.selectbox("Extracurricular Activities", ["Yes", "No"])
-    sleep_hours = st.sidebar.slider("Sleep Hours", 4, 10, 7)
-    no_que_solved = st.sidebar.slider("Number of Question Papers Solved", 4, 10, 7)
+    st.sidebar.header("📊 Input Parameters")
+    hours_studied = st.sidebar.slider("Hours Studied ⏰", 1, 10, 5)
+    pre_score = st.sidebar.slider("Previous Scores 📝", 40, 100, 40)
+    exe_activity = st.sidebar.selectbox("Extracurricular Activities 🏫", ["Yes", "No"])
+    sleep_hours = st.sidebar.slider("Sleep Hours 🛌", 4, 10, 7)
+    no_que_solved = st.sidebar.slider("Number of Question Papers Solved 📚", 4, 10, 7)
 
     user_data = {
         "Hours Studied": hours_studied,
@@ -55,24 +81,31 @@ def main():
     }
 
     # Prediction Button
-    if st.sidebar.button("Predict Performance"):
+    if st.sidebar.button("Predict Performance 🚀"):
         prediction = predict_data(user_data)
         
         # Display Prediction Results
-        st.markdown(f"### Prediction Result")
+        st.markdown(f"### Prediction Result 🎯", unsafe_allow_html=True)
         st.markdown(f"""
-            **Predicted Performance Index**: 
-            **{prediction[0]:.2f}**
+            <div class="prediction-result">
+                **Predicted Performance Index**: 
+                **{prediction[0]:.2f}**
+            </div>
         """, unsafe_allow_html=True)
         
         # Additional info (can be customized further)
-        st.markdown("### Explanation of Prediction")
-        st.write("The prediction is based on the input factors such as study hours, past performance, extracurricular activities, sleep hours, and the number of practice questions solved. The result indicates your potential performance based on these factors.")
+        st.markdown("### Explanation of Prediction 🧐", unsafe_allow_html=True)
+        st.write("""
+            The prediction is based on the input factors such as study hours, past performance, extracurricular activities, sleep hours, 
+            and the number of practice questions solved. The result indicates your potential performance based on these factors.
+        """, unsafe_allow_html=True)
         
     # Add footer or additional elements (optional)
     st.markdown("""
         ---
-        *Note: The prediction is based on the data model and may not fully capture all real-world factors. Please use it as a guideline.*
+        <div class="footer">
+            *Note: The prediction is based on the data model and may not fully capture all real-world factors. Please use it as a guideline.*
+        </div>
     """, unsafe_allow_html=True)
 
 if __name__ == "__main__":

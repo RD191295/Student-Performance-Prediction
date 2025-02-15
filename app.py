@@ -105,7 +105,7 @@ def main():
         st.markdown(f"### Prediction Result 🎯", unsafe_allow_html=True)
         st.markdown(f"""
             <div class="prediction-result">
-                **Predicted Performance Index**: <span style="font-size: 36px; color: #4CAF50;">{prediction[0]:.2f}</span>
+                Predicted Performance Index: <span style="font-size: 36px; color: #4CAF50;">{prediction[0]:.2f}</span>
             </div>
         """, unsafe_allow_html=True)
         

@@ -42,7 +42,7 @@ def main():
         </head>
     """, unsafe_allow_html=True)
     
-    st.set_page_config(page_title="Student Performance Prediction", layout="wide")
+    #st.set_page_config(page_title="Student Performance Prediction", layout="wide")
 
     st.title("📚 Student Performance Prediction 📚")
     

@@ -26,6 +26,22 @@ def predict_data(data):
     return prediction
 
 def main():
+    # Adding Metadata for SEO, Author, and more
+    st.markdown("""
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta name="description" content="Student Performance Prediction App - Predict your potential performance based on various factors like study hours, extracurricular activities, and previous scores.">
+            <meta name="author" content="Your Name">
+            <meta name="keywords" content="student, performance, prediction, study, academic, scores, machine learning">
+            <meta name="robots" content="index, follow">
+            <meta property="og:title" content="Student Performance Prediction">
+            <meta property="og:description" content="A simple app that predicts your academic performance based on factors such as study hours, previous scores, extracurricular activities, etc.">
+            <meta property="og:image" content="https://example.com/path-to-your-image.jpg">
+            <meta property="og:url" content="https://your-app-url.com">
+        </head>
+    """, unsafe_allow_html=True)
+    
     st.set_page_config(page_title="Student Performance Prediction", layout="wide")
 
     st.title("📚 Student Performance Prediction 📚")
@@ -40,10 +56,11 @@ def main():
                 font-weight: bold;
             }
             .prediction-result {
-                font-size: 28px;
+                font-size: 32px;
                 color: #FF6347;
                 font-weight: bold;
                 text-align: center;
+                margin-top: 20px;
             }
             .explanation {
                 font-size: 18px;
@@ -84,12 +101,11 @@ def main():
     if st.sidebar.button("Predict Performance 🚀"):
         prediction = predict_data(user_data)
         
-        # Display Prediction Results
+        # Display Prediction Results with improved formatting
         st.markdown(f"### Prediction Result 🎯", unsafe_allow_html=True)
         st.markdown(f"""
             <div class="prediction-result">
-                **Predicted Performance Index**: 
-                **{prediction[0]:.2f}**
+                **Predicted Performance Index**: <span style="font-size: 36px; color: #4CAF50;">{prediction[0]:.2f}</span>
             </div>
         """, unsafe_allow_html=True)
         
